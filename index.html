@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galerie des enseignements artistiques — Académie de Lille</title>
+<meta name="description" content="Les sept enseignements artistiques de l’académie de Lille : une galerie interactive.">
+<style>
+*{box-sizing:border-box}html,body{margin:0;padding:0;width:100%;background:#efe2cf}body{font-family:Georgia,serif;color:#172239}
+.gallery{position:relative;width:100%;aspect-ratio:1752/897;overflow:hidden}
+.panorama{display:block;width:100%;height:auto}
+.statue{position:absolute;top:16%;height:69%;width:13.5%;overflow:hidden;border-radius:45% 45% 2px 2px;color:#172239;text-decoration:none;-webkit-tap-highlight-color:#e8be6f66}
+.lit{position:absolute;width:740.740741%;max-width:none;top:-23.188406%;height:auto;opacity:0;filter:brightness(1.22) saturate(1.08);transition:opacity .35s ease;pointer-events:none}
+.statue:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 6%,rgba(255,228,159,.5),rgba(255,220,135,.16) 40%,transparent 78%);box-shadow:inset 0 0 20px #ffdf9b55;opacity:0;transition:opacity .35s ease}
+.label{position:absolute;z-index:2;bottom:2%;left:3%;right:3%;padding:10px 5px;background:#fff4e7f5;border:1px solid #ba945a;box-shadow:0 4px 12px #51391733;text-align:center;font-size:clamp(10px,1.2vw,24px);line-height:1.2;opacity:0;transform:translateY(5px);transition:opacity .25s,transform .25s}
+.statue:hover .lit,.statue:focus-visible .lit,.statue:hover:after,.statue:focus-visible:after{opacity:1}
+.statue:hover .label,.statue:focus-visible .label{opacity:1;transform:translateY(0)}
+.statue:focus-visible{outline:3px solid #aa6c13;outline-offset:-4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(prefers-reduced-motion:reduce){.lit,.statue:after,.label{transition:none}}
+@media(hover:none){.statue:active .lit,.statue:active:after{opacity:1}.statue:active .label{opacity:1;transform:none}}
+.gallery.image-error{aspect-ratio:auto;padding:20px}.image-error .panorama,.image-error .lit{display:none}.image-error .statue{position:relative;left:auto!important;display:block;width:100%;height:auto;border-radius:0;margin:10px 0}.image-error .label{position:relative;display:block;opacity:1;transform:none}.image-error .sr-only{position:static;width:auto;height:auto;clip:auto;white-space:normal}
+</style></head><body>
+<main class="gallery" aria-label="Galerie des enseignements artistiques">
+<h1 class="sr-only">Les enseignements artistiques — Académie de Lille</h1>
+<img class="panorama" src="galerie.png" width="1752" height="897" alt="Sept statues représentent les enseignements artistiques. Cliquez sur une statue pour accéder à ses ressources." fetchpriority="high">
+<nav aria-label="Sites et ressources des sept disciplines">
+<a class="statue" href="https://pedagogie.ac-lille.fr/arts-plastiques/" style="left:2.3%" target="_blank" rel="noopener noreferrer" aria-label="Arts plastiques — nouvel onglet" title="Arts plastiques"><img class="lit" src="galerie.png" alt="" aria-hidden="true" style="left:-17.037037037037038%;"><span class="label">Arts plastiques</span></a>
+<a class="statue" href="https://pedagogie.ac-lille.fr/emcc/" style="left:16.1%" target="_blank" rel="noopener noreferrer" aria-label="Éducation musicale et chant choral — nouvel onglet" title="Éducation musicale et chant choral"><img class="lit" src="galerie.png" alt="" aria-hidden="true" style="left:-119.25925925925927%;"><span class="label">Éducation musicale et chant choral</span></a>
+<a class="statue" href="https://pedagogie.ac-lille.fr/histoire-des-arts/" style="left:29.9%" target="_blank" rel="noopener noreferrer" aria-label="Histoire des arts — nouvel onglet" title="Histoire des arts"><img class="lit" src="galerie.png" alt="" aria-hidden="true" style="left:-221.48148148148147%;"><span class="label">Histoire des arts</span></a>
+<a class="statue" href="https://pedagogie.ac-lille.fr/cav/" style="left:43.7%" target="_blank" rel="noopener noreferrer" aria-label="Cinéma-audiovisuel — nouvel onglet" title="Cinéma-audiovisuel"><img class="lit" src="galerie.png" alt="" aria-hidden="true" style="left:-323.70370370370375%;"><span class="label">Cinéma-audiovisuel</span></a>
+<a class="statue" href="https://pedagogie.ac-lille.fr/lettres/category/ressources/themes/option-theatre/" style="left:57.5%" target="_blank" rel="noopener noreferrer" aria-label="Théâtre — nouvel onglet" title="Théâtre"><img class="lit" src="galerie.png" alt="" aria-hidden="true" style="left:-425.925925925926%;"><span class="label">Théâtre</span></a>
+<a class="statue" href="https://draeac.site.ac-lille.fr/danse/" style="left:71.3%" target="_blank" rel="noopener noreferrer" aria-label="Danse — nouvel onglet" title="Danse"><img class="lit" src="galerie.png" alt="" aria-hidden="true" style="left:-528.1481481481482%;"><span class="label">Danse</span></a>
+<a class="statue" href="https://draeac.site.ac-lille.fr/les-enseignements-artistiques-optionnels-danse-arts-du-cirque/" style="left:85.2%" target="_blank" rel="noopener noreferrer" aria-label="Arts du cirque — nouvel onglet" title="Arts du cirque"><img class="lit" src="galerie.png" alt="" aria-hidden="true" style="left:-631.1111111111111%;"><span class="label">Arts du cirque</span></a>
+</nav>
+</main>
+<script>
+const panorama=document.querySelector('.panorama');
+function imageFallback(){document.querySelector('.gallery').classList.add('image-error')}
+panorama.addEventListener('error',imageFallback);
+if(panorama.complete && !panorama.naturalWidth) imageFallback();
+</script>
+</body></html>
